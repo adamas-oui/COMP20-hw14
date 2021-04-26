@@ -35,7 +35,13 @@ MongoClient.connect(url,function(err, db){
   setTimeout(function(){db.close();console.log("Success!");},1000);
 });
 
-
+var http = require('http');
+var port = process.env.PORT || 3000;
+http.createServer(function(req, res){
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.write("hello");
+  res.end();
+}).listen(port);
 
 
 
