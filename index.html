@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>node js web page</title>
+    <style media="screen">
+      body{
+        background: #98c9a3;
+        font-family: verdana;
+        text-align: center;
+        padding: 100px;
+      } 
+      
+    </style> 
+  </head>
+  
+  <script type="text/javascript">
+  
+    window.onload = function(){
+      b = document.getElementById("btn1");
+      b.onclick = function(){
+        companyName = document.getElementById("company").value;
+        tickerName = document.getElementById("ticker").value;
+        // alert(companyName);
+        if(companyName == "" && tickerName == ""){
+          alert("oops you cannot have both to be empty!");
+          return;
+        }
+        if(companyName != "" && tickerName != ""){
+          alert("oops you cannot fill out both!");
+          return;
+        }
+      }
+    }
+    
+  </script>
+  <body>
+    <h1> Stocker Ticker</h1>
+    <p>Rules to use: <br> enter a stock ticker to get its company name OR 
+    enter a company name to get its stock ticker</p>
+    <p>NOTE: several company names may share the same stock ticker. 
+      <br> We will 
+    provide you all matching company names for the stock ticker you enter. 
+    <br>
+    <br>
+  EXAMPLE: you enter: GOOG. We will return Alphabet Inc. and Google.</p>
+    <br>
+    
+    <form action="http://127.0.0.1:8080/" method="post">
+      <input type="text" name="company" id="company" placeholder="enter company name">
+      <br>
+      OR
+      <br>
+      <input type="text" name="ticker" id="ticker" placeholder="enter stock ticker">
+      <br>
+      <br>
+      <button type="submit" name="button" id ="btn1">Let's check it out</button>
+    </form>
+    
+    
+    
+  </body>
+</html>
